@@ -1,6 +1,6 @@
-<?php namespace InlineSvg\Implementations;
+<?php namespace Phaza\InlineSvg\Implementations;
 
-use InlineSvg\Contracts\SvgInliner as SvgInlinerContract;
+use Phaza\InlineSvg\Contracts\SvgInliner as SvgInlinerContract;
 
 class SvgInliner implements SvgInlinerContract
 {
@@ -23,6 +23,16 @@ class SvgInliner implements SvgInlinerContract
 
     protected function getXmlObject( $svgPath )
     {
-        return simplexml_load_file( $svgPath );
+        return simplexml_load_file( $this->getPath( $svgPath ) );
+    }
+
+    protected function getPath( $svgPath )
+    {
+        if (strcmp( $svgPath[ 0 ], DIRECTORY_SEPARATOR ) === 0)
+        {
+            return $svgPath;
+        }
+
+        return config( 'blade-inline-svg.svg-path' ) . DIRECTORY_SEPARATOR . $svgPath;
     }
 }

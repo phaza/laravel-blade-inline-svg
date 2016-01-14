@@ -19,7 +19,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "InlineSvg\\": "src"
+            "Phaza\\InlineSvg\\": "src"
         }
     },
     "autoload-dev": {

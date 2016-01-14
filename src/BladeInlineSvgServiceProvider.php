@@ -1,8 +1,8 @@
-<?php namespace InlineSvg;
+<?php namespace Phaza\InlineSvg;
 
 use Blade;
-use InlineSvg\Contracts\SvgInliner as SvgInlinerContract;
-use InlineSvg\Implementations\SvgInliner;
+use Phaza\InlineSvg\Contracts\SvgInliner as SvgInlinerContract;
+use Phaza\InlineSvg\Implementations\SvgInliner;
 
 class BladeInlineSvgServiceProvider extends \Illuminate\Support\ServiceProvider
 {

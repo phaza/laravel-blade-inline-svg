@@ -1,6 +1,6 @@
 <?php
 
-use InlineSvg\Contracts\SvgInliner as SvgInlinerContract;
+use Phaza\InlineSvg\Contracts\SvgInliner as SvgInlinerContract;
 
 use Mockery as m;
 
@@ -14,7 +14,6 @@ class SvgInlinerTest extends TestCase
 
         $this->svgPath = __DIR__ . '/laravel.svg';
     }
-
 
     public function testAddsSvgAttributes()
     {
@@ -40,5 +39,25 @@ class SvgInlinerTest extends TestCase
           '<?php SvgInliner::render(\'/home/vagrant/Tjenestetorget/packages/laravel-blade-inline-svg/tests/laravel.svg\', ["class" => "InlineText"]); ?>',
           $compiler->compileString( $string )
         );
+    }
+
+    public function testReturnsCorrectPath()
+    {
+        Config::set( 'blade-inline-svg.svg-path', 'myPath' );
+        $stub = new SvgInlinerStub();
+
+
+        $this->assertEquals( 'myPath/something', $stub->getPath( 'something' ) );
+        $this->assertEquals( '/whatever', $stub->getPath( '/whatever' ) );
+
+    }
+}
+
+
+class SvgInlinerStub extends \Phaza\InlineSvg\Implementations\SvgInliner
+{
+    public function getPath( $svgPath )
+    {
+        return parent::getPath( $svgPath );
     }
 }

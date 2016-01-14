@@ -1,7 +1,7 @@
-<?php namespace InlineSvg\Facades;
+<?php namespace Phaza\InlineSvg\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use InlineSvg\Contracts\SvgInliner as SvgInlinerContract;
+use Phaza\InlineSvg\Contracts\SvgInliner as SvgInlinerContract;
 
 class SvgInliner extends Facade
 {

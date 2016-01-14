@@ -1,4 +1,4 @@
-<?php namespace InlineSvg\Contracts;
+<?php namespace Phaza\InlineSvg\Contracts;
 
 interface SvgInliner
 {
