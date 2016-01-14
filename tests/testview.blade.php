@@ -1,0 +1,1 @@
+@svg(./tests/laravel.svg)

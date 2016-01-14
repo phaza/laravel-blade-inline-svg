@@ -1,0 +1,30 @@
+{
+    "name": "phaza/laravel-blade-inline-svg",
+    "description": "Allows you to inline svgs in html so you can use normal CSS to apply styles to your svg. (No more multiple versions of same icon with just different colour)",
+    "require": {
+        "illuminate/config": "^5.1",
+        "illuminate/view": "^5.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.1",
+        "orchestra/testbench": "~3.0",
+        "mockery/mockery": "^0.9.4"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Peter Haza",
+            "email": "peter.haza@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "InlineSvg\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/TestCase.php"
+        ]
+    }
+}
