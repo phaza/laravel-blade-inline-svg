@@ -10,7 +10,7 @@ class BladeInlineSvgServiceProvider extends \Illuminate\Support\ServiceProvider
     {
         Blade::directive( 'svg', function ( $args )
         {
-            return "<?php SvgInliner::render{$args}; ?>";
+            return "<?php echo SvgInliner::render{$args}; ?>";
         } );
 
         $this->publishes( [
