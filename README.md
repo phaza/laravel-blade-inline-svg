@@ -26,5 +26,5 @@ svg-path:
 If `$path` starts with `DIRECTORY_SEPARATOR`, it's parsed as an absolute path.  
 If not, it's parsed as relative path starting at `config('blade-inline-svg.svg-path')` 
 
-#### `$attributes:
+#### `$attributes`:
 `$attributes` is an associative array of attributes you want to set on the svg element. Use this to add classes (or transforms) to easy reference the svg.
