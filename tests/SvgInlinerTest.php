@@ -36,7 +36,7 @@ class SvgInlinerTest extends TestCase
 
         $string = sprintf( '@svg(\'%s\', ["class" => "InlineText"])', $this->svgPath );
         $this->assertEquals(
-          '<?php SvgInliner::render(\'/home/vagrant/Tjenestetorget/packages/laravel-blade-inline-svg/tests/laravel.svg\', ["class" => "InlineText"]); ?>',
+          '<?php echo SvgInliner::render(\'/home/vagrant/Tjenestetorget/packages/laravel-blade-inline-svg/tests/laravel.svg\', ["class" => "InlineText"]); ?>',
           $compiler->compileString( $string )
         );
     }
