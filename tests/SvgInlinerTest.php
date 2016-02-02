@@ -18,7 +18,7 @@ class SvgInlinerTest extends TestCase
     public function testAddsSvgAttributes()
     {
         /** @var SvgInlinerContract $inliner */
-        $inliner = app( SvgInlinerContract::class );
+        $inliner = app( 'svginliner' );
 
         $content = $inliner->render( $this->svgPath, [ 'class' => 'InlineTest' ] );
         $this->assertContains( 'class="InlineTest"', $content );
@@ -36,7 +36,7 @@ class SvgInlinerTest extends TestCase
 
         $string = sprintf( '@svg(\'%s\', ["class" => "InlineText"])', $this->svgPath );
         $this->assertEquals(
-          '<?php echo SvgInliner::render(\'/home/vagrant/Tjenestetorget/packages/laravel-blade-inline-svg/tests/laravel.svg\', ["class" => "InlineText"]); ?>',
+          '<?php echo app(\'svginliner\')->render(\'/home/vagrant/Tjenestetorget/packages/laravel-blade-inline-svg/tests/laravel.svg\', ["class" => "InlineText"]); ?>',
           $compiler->compileString( $string )
         );
     }

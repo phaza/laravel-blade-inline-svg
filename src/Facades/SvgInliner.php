@@ -1,7 +1,6 @@
 <?php namespace Phaza\InlineSvg\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use Phaza\InlineSvg\Contracts\SvgInliner as SvgInlinerContract;
 
 class SvgInliner extends Facade
 {
@@ -12,6 +11,6 @@ class SvgInliner extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return SvgInlinerContract::class;
+        return 'svginliner';
     }
 }

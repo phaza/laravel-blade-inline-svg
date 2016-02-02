@@ -1,7 +1,6 @@
 <?php namespace Phaza\InlineSvg;
 
 use Blade;
-use Phaza\InlineSvg\Contracts\SvgInliner as SvgInlinerContract;
 use Phaza\InlineSvg\Implementations\SvgInliner;
 
 class BladeInlineSvgServiceProvider extends \Illuminate\Support\ServiceProvider
@@ -10,7 +9,7 @@ class BladeInlineSvgServiceProvider extends \Illuminate\Support\ServiceProvider
     {
         Blade::directive( 'svg', function ( $args )
         {
-            return "<?php echo SvgInliner::render{$args}; ?>";
+            return "<?php echo app('svginliner')->render{$args}; ?>";
         } );
 
         $this->publishes( [
@@ -25,7 +24,7 @@ class BladeInlineSvgServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton( SvgInlinerContract::class, function ()
+        $this->app->singleton( 'svginliner', function ()
         {
             return new SvgInliner();
         } );
